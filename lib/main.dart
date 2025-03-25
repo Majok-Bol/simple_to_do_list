@@ -96,7 +96,7 @@ class ShoppingListState extends State<ShoppingList>{
                     //     'Edit'),),),
                     SizedBox(width: 10,),
                     Expanded(child: ElevatedButton(onPressed:deleteItems,style:ElevatedButton.styleFrom(backgroundColor: Colors.red),child: Text(''
-                        'Delete'),),),
+                        'Clear item list'),),),
                   ],
                 ),
 
@@ -104,8 +104,21 @@ class ShoppingListState extends State<ShoppingList>{
                   itemCount: itemsToAdd.length,
 
                     itemBuilder:(context,index){
-                    return ListTile(title: Text(itemsToAdd[index]),trailing: IconButton(onPressed:()=>editItems(index), icon:Icon(Icons.edit,color: Colors.blue,)),);
+return ListTile(title: Text(itemsToAdd[index]),
+  trailing: Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
 
+    IconButton(onPressed:()=>editItems(index), icon:Icon(Icons.edit,color: Colors.blue,)),
+    IconButton(onPressed:(){
+      setState(() {
+        itemsToAdd.removeAt(index);
+      });
+    }, icon:Icon(Icons.delete,color: Colors.grey,)),
+  ],),
+
+
+);
                 })),
 
           ],
