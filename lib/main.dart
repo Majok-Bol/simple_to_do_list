@@ -109,7 +109,7 @@ return ListTile(title: Text(itemsToAdd[index]),
     mainAxisSize: MainAxisSize.min,
     children: [
 
-    IconButton(onPressed:()=>editItems(index), icon:Icon(Icons.edit,color: Colors.blue,)),
+    IconButton(onPressed:()=>editItems(index), icon:Icon(Icons.edit,color: Colors.lightBlueAccent,)),
     IconButton(onPressed:(){
       setState(() {
         itemsToAdd.removeAt(index);
